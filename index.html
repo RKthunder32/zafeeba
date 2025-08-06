@@ -3,978 +3,910 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zafeeba - The World's Most Luxurious Perfumes</title>
+    <title>Zafeeba - World's Most Luxurious Perfumes by Qari Bilal</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* Base Styles */
-:root {
-    --gold: #D4AF37;
-    --dark-gold: #996515;
-    --black: #121212;
-    --white: #FFFFFF;
-    --gray: #F5F5F5;
-    --dark-gray: #333333;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--dark-gray);
-    overflow-x: hidden;
-    background-color: var(--gray);
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-}
-
-/* Preloader Animation */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.preloader p {
-    color: var(--gold);
-    margin-top: 20px;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-}
-
-.diamond-animation {
-    display: flex;
-    gap: 10px;
-}
-
-.diamond {
-    width: 20px;
-    height: 20px;
-    background-color: var(--gold);
-    transform: rotate(45deg);
-    animation: diamondPulse 1.5s infinite ease-in-out;
-}
-
-.diamond:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.diamond:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes diamondPulse {
-    0%, 100% {
-        transform: rotate(45deg) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: rotate(45deg) scale(0.5);
-        opacity: 0.5;
-    }
-}
-
-/* WhatsApp Float Button */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    z-index: 100;
-    animation: float 3s ease-in-out infinite;
-    transition: all 0.3s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-/* Luxury Navigation */
-.luxury-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 15px 0;
-    transition: all 0.3s;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.brand-logo img {
-    height: 40px;
-}
-
-.brand-logo span {
-    color: var(--gold);
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 1px;
-    position: relative;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--gold);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--gold);
-    transition: width 0.3s;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-icons {
-    display: flex;
-    gap: 20px;
-    color: var(--white);
-    font-size: 1.2rem;
-}
-
-.nav-icons i {
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.nav-icons i:hover {
-    color: var(--gold);
-}
-
-.mobile-menu {
-    display: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.cta-button {
-    padding: 15px 30px;
-    background-color: var(--gold);
-    color: var(--black);
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 30px;
-    transition: all 0.3s;
-    border: 2px solid var(--gold);
-}
-
-.cta-button:hover {
-    background-color: transparent;
-    color: var(--gold);
-}
-
-.whatsapp-button {
-    background-color: transparent;
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.whatsapp-button:hover {
-    background-color: var(--gold);
-    color: var(--black);
-}
-
-.parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://example.com/luxury-perfume-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-    filter: brightness(0.6);
-}
-
-.gold-particle-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-image: url('https://example.com/gold-particles.png');
-    animation: particleMove 20s linear infinite;
-}
-
-@keyframes particleMove {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 1000px 1000px;
-    }
-}
-
-/* Collections Section */
-.collections {
-    padding: 100px 20px;
-    background-color: var(--white);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.section-header h2 span {
-    color: var(--gold);
-}
-
-.section-header p {
-    color: var(--dark-gray);
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.collection-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.collection-item {
-    background-color: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-}
-
-.collection-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-
-.collection-image {
-    height: 350px;
-    overflow: hidden;
-    position: relative;
-}
-
-.collection-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.collection-item:hover .collection-image img {
-    transform: scale(1.05);
-}
-
-.price-tag {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: var(--gold);
-    color: var(--black);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.collection-details {
-    padding: 25px;
-}
-
-.collection-details h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--black);
-}
-
-.collection-details p {
-    color: var(--dark-gray);
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-}
-
-.rating {
-    color: var(--gold);
-    margin-bottom: 20px;
-}
-
-.add-to-cart {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--black);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.add-to-cart:hover {
-    background-color: var(--gold);
-    color: var(--black);
-}
-
-/* Founder Section */
-.founder-section {
-    padding: 100px 20px;
-    background-color: var(--black);
-    color: white;
-}
-
-.founder-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.founder-image {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-.founder-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.signature {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    color: var(--gold);
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-style: italic;
-}
-
-.founder-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: white;
-}
-
-.founder-content h2 span {
-    color: var(--gold);
-}
-
-.founder-content p {
-    margin-bottom: 20px;
-    line-height: 1.8;
-    font-size: 1.1rem;
-}
-
-.luxury-badge {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 30px;
-    color: var(--gold);
-    font-weight: 700;
-}
-
-.luxury-badge i {
-    font-size: 1.5rem;
-}
-
-/* Luxury Experience Section */
-.luxury-experience {
-    padding: 100px 20px;
-    background-color: var(--white);
-}
-
-.experience-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.experience-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.experience-header h2 span {
-    color: var(--gold);
-}
-
-.experience-header p {
-    color: var(--dark-gray);
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.experience-item {
-    text-align: center;
-    padding: 40px 30px;
-    background-color: var(--gray);
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.experience-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.experience-icon {
-    width: 80px;
-    height: 80px;
-    background-color: var(--gold);
-    color: var(--black);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 25px;
-    font-size: 2rem;
-    transition: all 0.3s;
-}
-
-.experience-item:hover .experience-icon {
-    transform: rotateY(180deg);
-    background-color: var(--black);
-    color: var(--gold);
-}
-
-.experience-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: var(--black);
-}
-
-.experience-item p {
-    color: var(--dark-gray);
-    line-height: 1.7;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 100px 20px;
-    background-color: var(--gray);
-}
-
-.testimonial-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.testimonial-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.testimonial-header h2 span {
-    color: var(--gold);
-}
-
-.testimonial-slider {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--white);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    position: relative;
-}
-
-.testimonial-item {
-    text-align: center;
-}
-
-.testimonial-content i {
-    color: var(--gold);
-    font-size: 2rem;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.testimonial-content p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    font-style: italic;
-}
-
-.client-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.client-info img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.client-info h4 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: var(--black);
-}
-
-.client-info p {
-    margin: 5px 0 0;
-    font-size: 0.9rem;
-    color: var(--dark-gray);
-    font-style: normal;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 100px 20px;
-    background-color: var(--black);
-    color: white;
-}
-
-.contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-}
-
-.contact-info h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-.contact-info h2 span {
-    color: var(--gold);
-}
-
-.contact-info p {
-    margin-bottom: 40px;
-    line-height: 1.8;
-    font-size: 1.1rem;
-}
-
-.contact-method {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.contact-method i {
-    font-size: 1.5rem;
-    color: var(--gold);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(212, 175, 55, 0.1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contact-method h4 {
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-.contact-method a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.contact-method a:hover {
-    color: var(--gold);
-}
-
-.contact-form {
-    background-color: var(--white);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.contact-form h3 {
-    color: var(--black);
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-}
-
-.form-group textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-.contact-form button {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--gold);
-    color: var(--black);
-    border: none;
-    border-radius: 5px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.contact-form button:hover {
-    background-color: var(--dark-gold);
-}
-
-/* Footer */
-.luxury-footer {
-    background-color: var(--black);
-    color: white;
-    padding: 80px 20px 30px;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.footer-brand img {
-    height: 40px;
-    margin-bottom: 20px;
-}
-
-.footer-brand p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    color: white;
-    font-size: 1.2rem;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: var(--gold);
-}
-
-.footer-links h4 {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-    color: var(--gold);
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 15px;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--gold);
-}
-
-.footer-newsletter h4 {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-    color: var(--gold);
-}
-
-.footer-newsletter p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.footer-newsletter form {
-    display: flex;
-}
-
-.footer-newsletter input {
-    flex: 1;
-    padding: 12px 15px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.footer-newsletter button {
-    background-color: var(--gold);
-    color: var(--black);
-    border: none;
-    padding: 0 20px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.footer-newsletter button:hover {
-    background-color: var(--dark-gold);
-}
-
-.footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
-}
-
-.legal-links {
-    display: flex;
-    gap: 20px;
-}
-
-.legal-links a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.legal-links a:hover {
-    color: var(--gold);
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .founder-container,
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .founder-image {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    
-    .hero h1 {
-        font-size: 3rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .mobile-menu {
-        display: block;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .section-header h2,
-    .founder-content h2,
-    .experience-header h2,
-    .testimonial-header h2,
-    .contact-info h2 {
-        font-size: 2rem;
-    }
-    
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .legal-links {
-        justify-content: center;
-    }
-}
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #996515;
+            --black: #121212;
+            --white: #FFFFFF;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--black);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .preloader p {
+            color: var(--gold);
+            margin-top: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .diamond-animation {
+            display: flex;
+            gap: 10px;
+        }
+
+        .diamond {
+            width: 20px;
+            height: 20px;
+            background-color: var(--gold);
+            transform: rotate(45deg);
+            animation: diamondPulse 1.5s infinite ease-in-out;
+        }
+
+        .diamond:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .diamond:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes diamondPulse {
+            0%, 100% {
+                transform: rotate(45deg) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: rotate(45deg) scale(0.5);
+                opacity: 0.5;
+            }
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 100;
+            animation: float 3s ease-in-out infinite;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Navigation */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo img {
+            height: 40px;
+        }
+
+        .brand-logo span {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .nav-icons i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-icons i:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .whatsapp-button {
+            background-color: transparent;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1615634262417-98ba8a7f8ce4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            filter: brightness(0.6);
+        }
+
+        .gold-particle-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image: url('https://www.transparenttextures.com/patterns/gold-scale.png');
+            animation: particleMove 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes particleMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 1000px 1000px;
+            }
+        }
+
+        /* Collections Section */
+        .collections {
+            padding: 100px 20px;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span {
+            color: var(--gold);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .collection-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .collection-image {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .collection-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .collection-item:hover .collection-image img {
+            transform: scale(1.05);
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .collection-details {
+            padding: 25px;
+        }
+
+        .collection-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .collection-details p {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--black);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        /* Founder Section */
+        .founder-section {
+            padding: 100px 20px;
+            background-color: var(--black);
+            color: white;
+        }
+
+        .founder-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .founder-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .signature {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+
+        .founder-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .founder-content h2 span {
+            color: var(--gold);
+        }
+
+        .founder-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .luxury-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .luxury-badge i {
+            font-size: 1.5rem;
+        }
+
+        /* Luxury Experience Section */
+        .luxury-experience {
+            padding: 100px 20px;
+            background-color: var(--white);
+        }
+
+        .experience-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .experience-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .experience-header h2 span {
+            color: var(--gold);
+        }
+
+        .experience-header p {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: var(--gray);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .experience-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover .experience-icon {
+            transform: rotateY(180deg);
+            background-color: var(--black);
+            color: var(--gold);
+        }
+
+        .experience-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .experience-item p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 20px;
+            background-color: var(--black);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info h2 span {
+            color: var(--gold);
+        }
+
+        .contact-info p {
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-method h4 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-method a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-method a:hover {
+            color: var(--gold);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h3 {
+            color: var(--black);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--gold);
+            color: var(--black);
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--dark-gold);
+        }
+
+        /* Footer */
+        .luxury-footer {
+            background-color: var(--black);
+            color: white;
+            padding: 80px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold);
+        }
+
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-newsletter h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-newsletter form {
+            display: flex;
+        }
+
+        .footer-newsletter input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-newsletter button {
+            background-color: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .footer-newsletter button:hover {
+            background-color: var(--dark-gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .legal-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .legal-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .founder-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .founder-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2,
+            .founder-content h2,
+            .experience-header h2,
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .legal-links {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -997,7 +929,7 @@ h1, h2, h3, h4 {
     <nav class="luxury-nav">
         <div class="nav-container">
             <div class="brand-logo">
-                <img src="https://example.com/zafeeba-logo.png" alt="Zafeeba Luxury Perfumes">
+                <img src="https://via.placeholder.com/150x50?text=ZAFEEBA" alt="Zafeeba Luxury Perfumes">
                 <span>ZAFEEBA</span>
             </div>
             <div class="nav-links">
@@ -1020,7 +952,7 @@ h1, h2, h3, h4 {
 
     <!-- Hero Section with Parallax -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <h1 class="gold-text">THE EPITOME OF LUXURY</h1>
             <p class="hero-subtitle">Crafted by Qari Bilal - The World's Most Exclusive Fragrances</p>
             <div class="hero-buttons">
@@ -1036,16 +968,16 @@ h1, h2, h3, h4 {
 
     <!-- Luxury Collections -->
     <section id="collections" class="collections">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <h2>OUR <span>EXCLUSIVE</span> COLLECTIONS</h2>
             <p>Each bottle is a masterpiece, each scent a legend</p>
         </div>
         
         <div class="collection-grid">
             <!-- Collection Item 1 -->
-            <div class="collection-item">
+            <div class="collection-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="collection-image">
-                    <img src="https://example.com/perfume1.jpg" alt="Zafeeba Royal Oud">
+                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2089&q=80" alt="Zafeeba Royal Oud">
                     <div class="price-tag">$5,800</div>
                 </div>
                 <div class="collection-details">
@@ -1063,9 +995,9 @@ h1, h2, h3, h4 {
             </div>
             
             <!-- Collection Item 2 -->
-            <div class="collection-item">
+            <div class="collection-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="collection-image">
-                    <img src="https://example.com/perfume2.jpg" alt="Zafeeba Diamond Essence">
+                    <img src="https://images.unsplash.com/photo-1615368144592-6a8f18c1a2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80" alt="Zafeeba Diamond Essence">
                     <div class="price-tag">$12,000</div>
                 </div>
                 <div class="collection-details">
@@ -1083,9 +1015,9 @@ h1, h2, h3, h4 {
             </div>
             
             <!-- Collection Item 3 -->
-            <div class="collection-item">
+            <div class="collection-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="collection-image">
-                    <img src="https://example.com/perfume3.jpg" alt="Zafeeba Black Orchid">
+                    <img src="https://images.unsplash.com/photo-1615368144592-6a8f18c1a2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80" alt="Zafeeba Black Orchid">
                     <div class="price-tag">$8,500</div>
                 </div>
                 <div class="collection-details">
@@ -1107,11 +1039,11 @@ h1, h2, h3, h4 {
     <!-- Founder Section -->
     <section id="about" class="founder-section">
         <div class="founder-container">
-            <div class="founder-image">
-                <img src="https://example.com/qari-bilal.jpg" alt="Qari Bilal - Founder of Zafeeba">
+            <div class="founder-image" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Qari Bilal - Founder of Zafeeba">
                 <div class="signature">Qari Bilal</div>
             </div>
-            <div class="founder-content">
+            <div class="founder-content" data-aos="fade-left">
                 <h2>THE VISIONARY <span>BEHIND ZAFEEBA</span></h2>
                 <p>Qari Bilal, a master perfumer with over 30 years of experience, created Zafeeba with one goal in mind: to craft the world's most exquisite, rare, and luxurious fragrances without compromise.</p>
                 <p>Each Zafeeba perfume contains rare ingredients sourced from remote locations around the world, aged to perfection, and blended with precision that only Qari Bilal can achieve.</p>
@@ -1125,13 +1057,13 @@ h1, h2, h3, h4 {
 
     <!-- Luxury Experience Section -->
     <section id="experience" class="luxury-experience">
-        <div class="experience-header">
+        <div class="experience-header" data-aos="fade-up">
             <h2>THE <span>ZAFEEBA</span> EXPERIENCE</h2>
             <p>More than a fragrance - a statement of ultimate luxury</p>
         </div>
         
         <div class="experience-grid">
-            <div class="experience-item">
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="experience-icon">
                     <i class="fas fa-gem"></i>
                 </div>
@@ -1139,7 +1071,7 @@ h1, h2, h3, h4 {
                 <p>Each bottle is hand-blown by master artisans and adorned with precious metals and stones.</p>
             </div>
             
-            <div class="experience-item">
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="experience-icon">
                     <i class="fas fa-clock"></i>
                 </div>
@@ -1147,7 +1079,7 @@ h1, h2, h3, h4 {
                 <p>Our fragrances are aged for minimum 5 years to achieve unparalleled depth and complexity.</p>
             </div>
             
-            <div class="experience-item">
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="experience-icon">
                     <i class="fas fa-globe"></i>
                 </div>
@@ -1155,7 +1087,7 @@ h1, h2, h3, h4 {
                 <p>We source rare ingredients from the farthest corners of the earth for truly unique scents.</p>
             </div>
             
-            <div class="experience-item">
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="400">
                 <div class="experience-icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
@@ -1165,34 +1097,10 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="testimonial-header">
-            <h2>WORDS FROM <span>OUR CLIENTS</span></h2>
-        </div>
-        
-        <div class="testimonial-slider">
-            <!-- Testimonial items will slide here -->
-            <div class="testimonial-item">
-                <div class="testimonial-content">
-                    <i class="fas fa-quote-left"></i>
-                    <p>Zafeeba's Royal Oud is the only fragrance I wear. It's worth every penny of its $5,800 price tag. I receive compliments daily from world leaders and celebrities.</p>
-                    <div class="client-info">
-                        <img src="https://example.com/client1.jpg" alt="Sheikh Ahmed">
-                        <div>
-                            <h4>Sheikh Ahmed</h4>
-                            <p>Royal Family Member</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="contact-container">
-            <div class="contact-info">
+            <div class="contact-info" data-aos="fade-right">
                 <h2>EXCLUSIVE <span>ACCESS</span></h2>
                 <p>For private consultations or to join our VIP client list:</p>
                 
@@ -1221,7 +1129,7 @@ h1, h2, h3, h4 {
                 </div>
             </div>
             
-            <div class="contact-form">
+            <div class="contact-form" data-aos="fade-left">
                 <h3>REQUEST A PRIVATE CONSULTATION</h3>
                 <form>
                     <div class="form-group">
@@ -1246,7 +1154,7 @@ h1, h2, h3, h4 {
     <footer class="luxury-footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="https://example.com/zafeeba-logo-white.png" alt="Zafeeba">
+                <img src="https://via.placeholder.com/150x50?text=ZAFEEBA" alt="Zafeeba">
                 <p>The World's Most Exclusive Perfumes</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1295,195 +1203,89 @@ h1, h2, h3, h4 {
         </div>
     </footer>
 
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- GSAP for advanced animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
     <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
         // Preloader
-window.addEventListener('load', function() {
-    const preloader = document.querySelector('.preloader');
-    gsap.to(preloader, {
-        opacity: 0,
-        duration: 0.5,
-        onComplete: function() {
-            preloader.style.display = 'none';
-        }
-    });
-});
-
-// Navigation Scroll Effect
-window.addEventListener('scroll', function() {
-    const nav = document.querySelector('.luxury-nav');
-    if (window.scrollY > 50) {
-        nav.style.backgroundColor = 'rgba(0,0,0,0.95)';
-        nav.style.padding = '10px 0';
-    } else {
-        nav.style.backgroundColor = 'rgba(0,0,0,0.8)';
-        nav.style.padding = '15px 0';
-    }
-});
-
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
-
-// Hero Text Animation
-gsap.from('.hero h1', {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out'
-});
-
-gsap.from('.hero-subtitle', {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out',
-    delay: 0.3
-});
-
-gsap.from('.hero-buttons', {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out',
-    delay: 0.6
-});
-
-// Section Animations
-gsap.utils.toArray('section').forEach(section => {
-    const heading = section.querySelector('h2');
-    const content = section.querySelectorAll('p, .collection-item, .experience-item, .testimonial-item, .form-group');
-    
-    if (heading) {
-        gsap.from(heading, {
-            scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8
-        });
-    }
-    
-    if (content) {
-        gsap.from(content, {
-            scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2
-        });
-    }
-});
-
-// Founder Image Animation
-gsap.from('.founder-image', {
-    scrollTrigger: {
-        trigger: '.founder-section',
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-    },
-    x: -100,
-    opacity: 0,
-    duration: 1
-});
-
-gsap.from('.founder-content', {
-    scrollTrigger: {
-        trigger: '.founder-section',
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-    },
-    x: 100,
-    opacity: 0,
-    duration: 1
-});
-
-// Testimonial Slider
-let currentTestimonial = 0;
-const testimonials = [
-    {
-        quote: "Zafeeba's Royal Oud is the only fragrance I wear. It's worth every penny of its $5,800 price tag. I receive compliments daily from world leaders and celebrities.",
-        name: "Sheikh Ahmed",
-        title: "Royal Family Member",
-        image: "https://example.com/client1.jpg"
-    },
-    {
-        quote: "Diamond Essence is unlike anything else. The scent evolves throughout the day in the most mesmerizing way. It's an experience, not just a perfume.",
-        name: "Victoria Kensington",
-        title: "CEO, Luxury Holdings",
-        image: "https://example.com/client2.jpg"
-    },
-    {
-        quote: "Qari Bilal created a bespoke fragrance for my wedding that captured the essence of our love story. It was worth the $25,000 price for this one-of-a-kind masterpiece.",
-        name: "Alexander Romanov",
-        title: "Tech Billionaire",
-        image: "https://example.com/client3.jpg"
-    }
-];
-
-function showTestimonial(index) {
-    const testimonial = testimonials[index];
-    const testimonialContent = document.querySelector('.testimonial-content p');
-    const clientInfo = document.querySelector('.client-info');
-    
-    gsap.to(testimonialContent, {
-        duration: 0.3,
-        opacity: 0,
-        y: 20,
-        onComplete: function() {
-            testimonialContent.textContent = testimonial.quote;
-            clientInfo.innerHTML = `
-                <img src="${testimonial.image}" alt="${testimonial.name}">
-                <div>
-                    <h4>${testimonial.name}</h4>
-                    <p>${testimonial.title}</p>
-                </div>
-            `;
-            gsap.fromTo(testimonialContent, 
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.3 }
-            );
-            gsap.from(clientInfo, {
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            gsap.to(preloader, {
                 opacity: 0,
-                y: 20,
-                duration: 0.3,
-                delay: 0.2
+                duration: 0.5,
+                onComplete: function() {
+                    preloader.style.display = 'none';
+                }
             });
-        }
-    });
-}
+        });
 
-// Auto-rotate testimonials
-setInterval(function() {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    showTestimonial(currentTestimonial);
-}, 5000);
+        // Navigation Scroll Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.luxury-nav');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(0,0,0,0.95)';
+                nav.style.padding = '10px 0';
+            } else {
+                nav.style.backgroundColor = 'rgba(0,0,0,0.8)';
+                nav.style.padding = '15px 0';
+            }
+        });
 
-// Mobile Menu Toggle
-const mobileMenu = document.querySelector('.mobile-menu');
-const navLinks = document.querySelector('.nav-links');
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
 
-mobileMenu.addEventListener('click', function() {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-});
+        mobileMenu.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
 
-// WhatsApp Click Event
-const whatsappBtn = document.querySelector('.whatsapp-float');
-whatsappBtn.addEventListener('click', function() {
-    gsap.to(whatsappBtn, {
-        scale: 1.2,
-        duration: 0.2,
-        yoyo: true,
-        repeat: 1
-    });
-});
+        // WhatsApp Click Event
+        const whatsappBtn = document.querySelector('.whatsapp-float');
+        whatsappBtn.addEventListener('click', function() {
+            gsap.to(whatsappBtn, {
+                scale: 1.2,
+                duration: 0.2,
+                yoyo: true,
+                repeat: 1
+            });
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Text Animation
+        gsap.from('.hero h1', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-subtitle', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.3
+        });
+
+        gsap.from('.hero-buttons', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.6
+        });
     </script>
 </body>
 </html>
